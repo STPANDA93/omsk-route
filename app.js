@@ -47,6 +47,7 @@ async function loadRoute(){
 function initOsm(){
  state.provider='osm';if(!window.L){status('Не удалось загрузить карту. Выберите место из списка или откройте маршрут в Яндекс Картах.');return;}
  state.map=L.map('map',{zoomControl:true,scrollWheelZoom:true}).setView([54.996,73.34],13);
+ state.map.attributionControl.setPrefix(false);
  L.control.zoom({position:'topright'}).addTo(state.map);
  let tileErrors=0;
  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).on('tileerror',()=>{if(++tileErrors===5)status('Подложка карты недоступна. Точки и путь показаны; навигацию можно открыть в Яндекс Картах.');}).addTo(state.map);
