@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3ec">
+  <meta name="description" content="Пять мест Омска: пеший и велосипедный маршрут, фотографии и истории.">
+  <title>Омск, шаг за шагом — маршрут по городу</title>
+  <link rel="stylesheet" href="assets/leaflet.css"><link rel="stylesheet" href="style.css">
+  <script defer src="assets/leaflet.js"></script><script defer src="assets/qrcode.js"></script><script defer src="config.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="header">
+  <a class="brand" href="./" aria-label="В начало"><span class="brand-icon">о<span>м</span></span><span>ОМСК <span class="brand-light">/ ПРОГУЛКИ</span></span></a>
+  <span class="header-note">ГОРОД НА СЛИЯНИИ ДВУХ РЕК</span>
+  <button class="share-button" id="share">↗ <span>Поделиться маршрутом</span></button>
+</header>
+<main class="layout">
+  <aside class="sidebar">
+    <div class="intro"><div class="eyebrow"><span class="dot"></span> СИБИРЬ · ОМСК</div><h1>Омск,<br> шаг за шагом<span class="orange">.</span></h1><p>От энергии арены до тихих берегов Иртыша. Пять мест, чтобы познакомиться с городом.</p></div>
+    <div class="mode-switch" role="group" aria-label="Способ передвижения"><button id="walking" class="active" aria-pressed="true">🚶 Пешком</button><button id="cycling" aria-pressed="false">🚲 На велосипеде</button></div>
+    <div class="stats"><div><strong id="distance">—</strong><span>длина маршрута</span></div><div><strong id="duration">—</strong><span>в пути, без остановок</span></div><div><strong>5</strong><span>мест</span></div></div>
+    <div class="section-heading"><span>ВАШ МАРШРУТ</span><span>01 — 05</span></div>
+    <nav id="places" aria-label="Точки маршрута"></nav>
+    <div class="sidebar-footer"><a id="yandex-route" class="primary-button" target="_blank" rel="noopener">Открыть маршрут в Яндекс Картах <span>↗</span></a><p class="hint">Порядок точек сохранён. От арены путь проходит через Иртыш по мосту.</p><details><summary>О карте и фотографиях</summary><p>Пути рассчитаны по OpenStreetMap сервисом FOSSGIS. Времена ориентировочные. Веломаршрут может включать участки, где нужно спешиться. Соблюдайте знаки и ограничения на месте.</p><p>У фото указаны источники и даты публикаций, если они известны. Они не означают дату съёмки. Фото не обновляются автоматически.</p><p>Для демонстрации использованы изображения авторов и редакций. Ссылки на источники есть в каждой карточке.</p></details></div>
+  </aside>
+  <section class="map-section" aria-label="Интерактивная карта маршрута">
+    <div id="map"></div>
+    <div class="map-label"><span class="dot"></span><span id="map-title">ПЕШИЙ МАРШРУТ</span></div>
+    <div class="map-tools"><button id="fit" title="Показать весь маршрут" aria-label="Показать весь маршрут">⛶</button><button id="locate" title="Моё местоположение" aria-label="Показать моё местоположение">◎</button></div>
+    <div id="map-status" class="map-status" role="status">Загружаем карту и маршрут…</div>
+    <article class="place-card" id="card" hidden aria-label="Карточка места"></article>
+    <div class="map-caption">Пять остановок. Один новый взгляд на город.</div>
+  </section>
+</main>
+<dialog id="share-dialog"><form method="dialog"><button class="close-dialog" aria-label="Закрыть">×</button></form><div class="eyebrow">ПРОГУЛКА НА ТЕЛЕФОНЕ</div><h2>Заберите Омск с собой</h2><p>QR-код открывает эту карту в браузере.</p><label for="share-url">Адрес опубликованной страницы</label><input id="share-url" type="url" placeholder="https://ваш-сайт.ru/"><p id="qr-note" class="hint"></p><div id="qr"></div><div class="dialog-actions"><button class="primary-button" id="download-qr" disabled>Скачать QR-код</button><button class="secondary-button" id="copy-link" disabled>Скопировать ссылку</button></div><p id="copy-status" role="status" class="hint"></p></dialog>
+<noscript>Для интерактивной карты включите JavaScript. Маршрут: G-Drive Арена → Успенский собор → Омская крепость → набережная у крепости → фонтан в сквере Дзержинского.</noscript>
+</body></html>
